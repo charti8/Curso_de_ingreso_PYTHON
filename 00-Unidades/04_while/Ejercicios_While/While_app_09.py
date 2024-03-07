@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Santiago
+apellido: Santa Cruz
 ---
 Ejercicio: while_09
 ---
@@ -40,7 +40,30 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        bandera = True
+        contador = 0
+
+        while True:
+            numero = prompt("mensaje", "ingrese un numero")
+
+            if numero == None:
+                break
+
+            numero = int(numero)
+
+            if bandera == True or numero > maximo:
+                maximo = numero
+            
+            if bandera == True or numero < minimo:
+                minimo = numero
+                bandera = False
+
+            
+
+        self.txt_maximo.delete(0, "end")
+        self.txt_minimo.delete(0, "end")
+        self.txt_maximo.insert(0, maximo)
+        self.txt_minimo.insert(0, minimo)
 
 
 if __name__ == "__main__":
