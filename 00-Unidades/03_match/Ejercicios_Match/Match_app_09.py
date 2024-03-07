@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Santiago
+apellido: Santa Cruz
 ---
 Ejercicio: Match_09
 ---
@@ -57,8 +57,37 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
+        destino = self.combobox_destino.get()
+        estacion = self.combobox_estaciones.get()
+        precio = 15000
+        
+        match estacion:
+            case "Invierno":
+                if destino == "Bariloche":
+                    precio_final = precio + (precio * 0.2)
+                elif destino == "Cataratas" or destino == "Cordoba":
+                    precio_final = precio - (precio * 0.1)
+                else:
+                    precio_final = precio - (precio * 0.2)
+            case "Verano":
+                if destino == "Bariloche":
+                    precio_final = precio - (precio * 0.2)
+                elif destino == "Cataratas" or destino == "Cordoba":
+                    precio_final = precio + (precio * 0.1)
+                else:
+                    precio_final = precio + (precio * 0.2)
+            case "Otoño" | "Primavera":
+                if destino == "Bariloche" or destino == "Cataratas" or destino == "Mar del plata":
+                    precio_final = precio + (precio * 0.1)
+                else:
+                    precio_final = precio
+                
+
+        alert("mensaje", precio_final)
+
+
+
+
     
 if __name__ == "__main__":
     app = App()
