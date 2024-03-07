@@ -43,7 +43,63 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        precio = int(800)
+        cantidad = int(self.combobox_cantidad.get())
+        marca = self.combobox_marca.get()
+
+
+        if cantidad >= 6:
+            precio_final = precio * cantidad
+            descuento = (precio_final * 50) / 100
+            precio_final = precio_final - descuento
+
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                precio_final = precio * 5
+                descuento = (precio_final * 40) / 100
+                precio_final = precio_final - descuento
+
+            else:
+                precio_final = precio * 5
+                descuento = (precio_final * 30) / 100
+                precio_final = precio_final - descuento
+
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                precio_final = precio * 4
+                descuento = (precio_final * 25) / 100
+                precio_final = precio_final - descuento
+            else:
+                precio_final = precio * 4
+                descuento = (precio_final * 20) / 100
+                precio_final = precio_final - descuento
+
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                precio_final = precio * 3
+                descuento = (precio_final * 15) / 100
+                precio_final = precio_final - descuento
+            elif marca == "FelipeLamparas":
+                precio_final = precio * 3
+                descuento = (precio_final * 10) / 100
+                precio_final = precio_final - descuento
+            else:
+                precio_final = precio * 3
+                descuento = (precio_final * 5) / 100
+                precio_final = precio_final - descuento
+        else:
+            precio_final = precio * cantidad
+
+        if precio_final >= 4000:
+            descuento_adicional = (precio_final * 5) / 100
+            precio_final = precio_final - descuento_adicional
+        
+        alert("mensaje", f"El precio final es de {precio_final} pesos")
+
+
+
+
+        
         
     
 if __name__ == "__main__":

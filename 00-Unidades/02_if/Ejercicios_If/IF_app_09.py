@@ -5,9 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 import random
 
-'''
-nombre:
-apellido:
+''' 
+nombre: Santiago
+apellido: Santa Cruz
 ---
 Ejercicio: if_09
 ---
@@ -27,7 +27,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_random = random.randrange(1, 11)
+        alert("mensaje", numero_random )
         
 
 if __name__ == "__main__":
