@@ -74,8 +74,6 @@ class App(customtkinter.CTk):
         total = cantidad * precio
         total_descuento = total - (total * descuento)
 
-
-
         if total_descuento >= 4000:
             descuento = 0.05
             total_descuento = total_descuento - (total_descuento * descuento)
