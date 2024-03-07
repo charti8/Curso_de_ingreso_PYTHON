@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Santiago
+apellido: Santa Cruz
 ---
 TP: IF_Iluminacion
 ---
@@ -49,52 +49,40 @@ class App(customtkinter.CTk):
 
 
         if cantidad >= 6:
-            precio_final = precio * cantidad
-            descuento = (precio_final * 50) / 100
-            precio_final = precio_final - descuento
+            descuento = 0.5
 
         elif cantidad == 5:
             if marca == "ArgentinaLuz":
-                precio_final = precio * 5
-                descuento = (precio_final * 40) / 100
-                precio_final = precio_final - descuento
-
+                descuento = 0.4
             else:
-                precio_final = precio * 5
-                descuento = (precio_final * 30) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.3
 
         elif cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                precio_final = precio * 4
-                descuento = (precio_final * 25) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.25
             else:
-                precio_final = precio * 4
-                descuento = (precio_final * 20) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.2
 
         elif cantidad == 3:
             if marca == "ArgentinaLuz":
-                precio_final = precio * 3
-                descuento = (precio_final * 15) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.15
             elif marca == "FelipeLamparas":
-                precio_final = precio * 3
-                descuento = (precio_final * 10) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.1
             else:
-                precio_final = precio * 3
-                descuento = (precio_final * 5) / 100
-                precio_final = precio_final - descuento
+                descuento = 0.05
         else:
-            precio_final = precio * cantidad
+            descuento = 0
 
-        if precio_final >= 4000:
-            descuento_adicional = (precio_final * 5) / 100
-            precio_final = precio_final - descuento_adicional
+        total = cantidad * precio
+        total_descuento = total - (total * descuento)
+
+        if total_descuento >= 4000:
+            descuento = 0.05
+            total_descuento = total_descuento - (total_descuento * descuento)
+
+
         
-        alert("mensaje", f"El precio final es de {precio_final} pesos")
+        alert("mensaje", f"El precio final es de {total_descuento} pesos")
 
 
 
