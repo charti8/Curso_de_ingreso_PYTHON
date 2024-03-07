@@ -4,9 +4,9 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-'''
-nombre:
-apellido:
+''' 
+nombre: Santiago
+apellido: Santa Cruz
 ---
 Ejercicio: if_01
 ---
